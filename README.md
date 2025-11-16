@@ -121,7 +121,10 @@ gestor_tareas/
 │      ├─ lista.html
 │      ├─ detalle.html
 │      ├─ agregar.html
-│      └─ eliminar.html
+│      ├─ eliminar.html
+│      ├─ login.html
+│      ├─ logout.html
+│      └─ registro.html
 ├─ manage.py
 ├─ requirements.txt
 └─ db.sqlite3
