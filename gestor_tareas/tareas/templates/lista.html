@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Mis Tareas</h2>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show mt-3" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<a href="{% url 'agregar_tarea' %}" class="btn btn-primary">Agregar Tarea</a>
+<ul class="list-group mt-3">
+    {% for tarea in tareas %}
+        <li class="list-group-item">
+            <strong>{{ tarea.titulo }}</strong>
+            <p>{{ tarea.descripcion }}</p>
+            <a href="{% url 'detalle_tarea' tarea.pk %}" class="btn btn-sm btn-info">Editar Tarea</a>
+            <a href="{% url 'eliminar_tarea' tarea.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+        </li>
+    {% empty %}
+        <li class="list-group-item">No tienes tareas aún.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
